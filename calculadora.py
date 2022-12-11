@@ -3,7 +3,7 @@ import math
 
 menu_inicial = Tk()
 menu_inicial.title("Calculadora")
-menu_inicial.geometry("250x500") # Tamanho da janela
+menu_inicial.geometry("250x300") # Tamanho da janela
 menu_inicial.resizable(False, False) # Impede que a janela seja redimensionada
 
 #change color
@@ -15,6 +15,14 @@ img = Image("photo", file="icon.png")
 menu_inicial.tk.call('wm', 'iconphoto', menu_inicial._w, img)
 
 # operaçoes
+
+def porcent():
+    n1 = visor.get()
+    n1 = int(n1)
+    n2 = n1 / 100
+    visor.delete(0, END)
+    visor.insert(0, n2)
+    opt = "porcent"
 
 def ln():
     n1 = visor.get()
@@ -130,6 +138,8 @@ def igual():
         potencia()
     elif opt == "ln":
         ln()
+    elif opt == "porcent":
+        porcent()
 
 def ce():
     visor.delete(0, END)
@@ -142,43 +152,46 @@ visor.place(x=10, y=20)
 # Botões operações
 
 botao_igual = Button(menu_inicial, text="=",padx=10, pady=30, command=igual)
-botao_igual.place(x=210, y=50)
+botao_igual.place(x=210, y=10)
 
 botao_soma = Button(menu_inicial, text="+", padx=10, pady=10, command=soma)
-botao_soma.place(x=210, y=140)
+botao_soma.place(x=210, y=100)
 
 botao_sub = Button(menu_inicial, text="-", padx=11, pady=11, command=sub)
-botao_sub.place(x=210, y=190)
+botao_sub.place(x=210, y=150)
 
 botao_fat = Button(menu_inicial, text="!", padx=10, pady=10, command=fatorial)
-botao_fat.place(x=210, y=240)
+botao_fat.place(x=210, y=200)
 
 botao_mult = Button(menu_inicial, text="x", padx=10, pady=10, command=mult)
-botao_mult.place(x=210, y=290)
+botao_mult.place(x=210, y=250)
 
 botao_div = Button(menu_inicial, text="/", padx=10, pady=10, command=div)
-botao_div.place(x=210, y=340)
+botao_div.place(x=160, y=230)
 
 botao_ce = Button(menu_inicial, text="CE", padx=80, pady=10, command=ce)
-botao_ce.place(x=10, y=150)
+botao_ce.place(x=10, y=130)
 
 botao_seno = Button(menu_inicial, text="sin", padx=10, pady=10, command=seno)
-botao_seno.place(x=10, y=200)
+botao_seno.place(x=10, y=180)
 
 botao_cos = Button(menu_inicial, text="cos", padx=10, pady=10, command=cos)
-botao_cos.place(x=60, y=200)
+botao_cos.place(x=60, y=180)
 
 botao_tan = Button(menu_inicial, text="tan", padx=10, pady=10, command=tan)
-botao_tan.place(x=110, y=200)
+botao_tan.place(x=110, y=180)
 
 botao_raiz = Button(menu_inicial, text="√", padx=10, pady=10, command=raiz)
-botao_raiz.place(x=160, y=200)
+botao_raiz.place(x=160, y=180)
 
 botao_potencia = Button(menu_inicial, text="x²", padx=10, pady=10, command=potencia)
-botao_potencia.place(x=10, y=250)
+botao_potencia.place(x=10, y=230)
 
 botao_ln = Button(menu_inicial, text="ln", padx=10, pady=10, command=ln)
-botao_ln.place(x=60, y=250)
+botao_ln.place(x=60, y=230)
+
+botao_porcent = Button(menu_inicial, text="%", padx=10, pady=10, command=porcent)
+botao_porcent.place(x=110, y=230)
 
 # Botõeo numeros
 
